@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// Import Font Awesome (after install: npm install @fortawesome/fontawesome-free)
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Navbar from "./(root)/components/Navbar";
+import Footer from "./(root)/components/Footer";
+import ConditionalLayout from "./(root)/components/ConditionalLayout";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );
